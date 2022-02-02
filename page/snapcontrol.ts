@@ -652,13 +652,17 @@ function show() {
     let serverVersion = snapcontrol.server.server.snapserver.version.split('.');
     content += "<div class='nav-buttons'>"
     if ((serverVersion.length >= 2) && (+serverVersion[1] >= 21)) {
-        content += "    <img src='" + play_img + "' class='play-button nav-button' id='play-button'></a>";
+        content += "    <img src='" + play_img + "' class='play-button' id='play-button'></a>";
         // Stream became ready and was not playing. If autoplay is requested, start playing.
         if (!snapstream && !autoplay_done && autoplayRequested()) {
             autoplay_done = true;
             play();
         }
-        content += "<img src='meatball.png' class='nav-button'>"
+        content += "<img src='meatball.png' class='nav-button' id='menu-button'></a>" +
+            "<div class='popup-menu'>" +
+            "<div class='item'>AAAAAH</div>" +
+            "<div class='item'>AAAAAH</div>" +
+            "</div>"
     }
     content += "</div></div>";
     content += "<div class='content'>";
@@ -803,6 +807,10 @@ function show() {
     playElem.onclick = () => {
         play();
     };
+    let menuElem = document.getElementById('menu-button') as HTMLElement;
+    menuElem.onclick = () => {
+        console.log('click');
+    }
 
     for (let group of snapcontrol.server.groups) {
         if (group.clients.length > 1) {
