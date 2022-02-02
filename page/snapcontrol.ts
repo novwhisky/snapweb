@@ -650,15 +650,17 @@ function show() {
     let content = "";
     content += "<div class='navbar'>Snapcast";
     let serverVersion = snapcontrol.server.server.snapserver.version.split('.');
+    content += "<div class='nav-buttons'>"
     if ((serverVersion.length >= 2) && (+serverVersion[1] >= 21)) {
-        content += "    <img src='" + play_img + "' class='play-button' id='play-button'></a>";
+        content += "    <img src='" + play_img + "' class='play-button nav-button' id='play-button'></a>";
         // Stream became ready and was not playing. If autoplay is requested, start playing.
         if (!snapstream && !autoplay_done && autoplayRequested()) {
             autoplay_done = true;
             play();
         }
+        content += "<img src='meatball.png' class='nav-button'>"
     }
-    content += "</div>";
+    content += "</div></div>";
     content += "<div class='content'>";
 
     let server = snapcontrol.server;

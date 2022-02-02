@@ -33,6 +33,7 @@ input, textarea, button, select, a {
 }
 
 .navbar {
+    box-sizing: border-box;
     overflow: hidden;
     background-color: #607d8b;
     z-index: 1; /* Sit on top */
@@ -46,13 +47,12 @@ input, textarea, button, select, a {
     user-select: none;
 }
 
-.play-button {
-    display: block;
-    position: absolute;
-    right: 34px;
-    top: 5px;
+.nav-buttons {
+    display: flex;
     height: 40px;
-    width: 40px;
+    position: absolute;
+    top: 5px;
+    right: 16px;
 }
 
 .content {

@@ -13,6 +13,7 @@ dist: tsc
 	cp page/index.html dist
 	cp page/launcher-icon.png dist
 	cp page/manifest.json dist
+	cp page/meatball.png dist
 	cp page/mute_icon.png dist
 	cp page/play.png dist
 	cp page/snapcast-512.png dist
